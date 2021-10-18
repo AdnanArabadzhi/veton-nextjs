@@ -1,0 +1,39 @@
+export default `query HomePageQuery {
+    carousels{
+        id
+        gallery{
+            id
+            url
+            name
+            alternativeText
+            width
+            height
+            size
+          }
+        }
+    products{
+        id
+        product_id
+        Title
+        Description
+        gallery{
+            id
+            url
+            }
+        }
+    hometexts{
+        id
+        firstText
+        secondText
+        }
+    projects{
+        id
+        Title
+        Description
+        gallery{
+            id
+            url
+        }
+        }
+}
+`;
