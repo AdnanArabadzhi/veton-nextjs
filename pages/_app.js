@@ -11,7 +11,6 @@ import { StoreProvider } from '../utils/Store';
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
-  console.log(typeof window, typeof document);
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');

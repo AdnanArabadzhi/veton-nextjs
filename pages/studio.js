@@ -3,11 +3,11 @@ import Layout from '../components/Layout';
 import { studio } from './api/graphQL/graphQL';
 import Image from 'next/image';
 import { Grid } from '@material-ui/core';
+import { API_URL } from '../environment';
 
 export default function Studio(props) {
   let designers = props.designers;
 
-  console.log(designers);
   return (
     <Layout>
       <h1 style={{ textAlign: 'center' }}> Our team is all about the hustle</h1>
@@ -19,7 +19,7 @@ export default function Studio(props) {
                 <div style={{ borderRadius: '250px', overflow: 'hidden' }}>
                   <Image
                     className="image"
-                    src={'http://localhost:1337' + designer.avatar.url}
+                    src={API_URL + designer.avatar.url}
                     alt="nz2"
                     width={designer.avatar.width}
                     height={designer.avatar.height}
@@ -52,7 +52,6 @@ export default function Studio(props) {
 Studio.getInitialProps = async (ctx) => {
   let data = await studio();
   let designers = data.designers;
-  console.log(designers);
 
   // const res = await fetch(`http://localhost:1337/products`);
   // const products = await res.json();

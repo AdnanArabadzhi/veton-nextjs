@@ -41,8 +41,6 @@ export default function Layout({ title, children, description }) {
   });
 
   const toggleDrawer = (anchorState, open) => (event) => {
-    console.log(state);
-    console.log(anchorState);
     // setState({ ...state, ['anchor']: anchorState });
     setState({ ...state, [anchorState]: open, ['anchor']: anchorState });
   };

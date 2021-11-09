@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:1337/graphql';
+import { GRAPHQL_API_URL } from '../../../environment';
+
+// const GRAPHQL_API_URL = 'http://localhost:1337/graphql';
 
 import homepageQuery from './query/homepageQuery';
 
@@ -6,7 +8,7 @@ import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import studioQuery from './query/studioQuery';
 
 const client = new ApolloClient({
-  uri: API_URL,
+  uri: GRAPHQL_API_URL,
   cache: new InMemoryCache(),
 });
 

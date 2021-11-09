@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 const image1 = require('../public/images/KuhnqS.jpg');
 const image2 = require('../public/images/KuhnqS2.jpg');
+import { API_URL } from '../environment';
 
 import globalStyles from '../styles/global.js';
 
@@ -10,8 +11,9 @@ export default class SimpleSlider extends Component {
   render() {
     let carousel = this.props.carousel;
     let styling = this.props.styling;
-    console.log(styling);
     let image = carousel.gallery[0];
+
+    console.log(image);
 
     const settings = {
       dots: true,
@@ -52,7 +54,7 @@ export default class SimpleSlider extends Component {
               </div>
               <Image
                 className="image"
-                src={'http://localhost:1337' + image.url}
+                src={API_URL + image.url}
                 alt="nz2"
                 width={image.width}
                 height={image.height}

@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import NextLink from 'next/link';
 import ReactDOM from 'react-dom';
 import React, { useState, useEffect, useCallback } from 'react';
+import { API_URL } from '../environment';
 
 // import styles from '../styles/Home.module.css';
 import {
@@ -25,7 +26,6 @@ import SimpleSlider from '../components/SimpleSlider';
 const image1 = require('../public/images/KuhnqS.jpg');
 
 export default function Home(props) {
-  console.log(props);
   const texts = props.texts[0];
   // const dataSet = data;
   let currentCarousel;
@@ -68,8 +68,10 @@ export default function Home(props) {
     }
   `;
   }
-  console.log(size);
-  console.log(currentCarousel);
+  console.log('STRAPI_API');
+  console.log(API_URL);
+  console.log(API_URL + '/');
+  console.log(props);
 
   if (typeof window !== 'undefined') {
   }
@@ -103,7 +105,7 @@ export default function Home(props) {
                     <CardActionArea>
                       <CardMedia
                         component="img"
-                        src={'http://localhost:1337' + product.gallery[0].url}
+                        src={API_URL + product.gallery[0].url}
                         title={product.brand}
                         style={{ height: '100%', width: '100%' }}
                       ></CardMedia>
@@ -148,7 +150,7 @@ export default function Home(props) {
                     <CardActionArea>
                       <CardMedia
                         component="img"
-                        src={'http://localhost:1337' + product.gallery[0].url}
+                        src={API_URL + product.gallery[0].url}
                         title={product.brand}
                         style={{ height: '100%', width: '100%' }}
                       ></CardMedia>
@@ -170,7 +172,7 @@ export default function Home(props) {
         </div>
         <div>
           <Image
-            src={'http://localhost:1337' + props.products[0].gallery[0].url}
+            src={API_URL + props.products[0].gallery[0].url}
             alt="nz2"
             width={640}
             height={400}
