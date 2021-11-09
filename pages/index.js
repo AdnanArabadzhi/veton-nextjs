@@ -14,77 +14,16 @@ import {
   CardContent,
   Typography,
   CardActions,
-  Button,
 } from '@material-ui/core';
 
 import { homePage } from './api/graphQL/graphQL';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import dynamic from 'next/dynamic';
-
-import data from '../utils/data';
-// import '../styles/reset.css';
-import Carousel from '../components/Carousel';
-import EmblaCarousel from '../components/EmblaCarousel';
 import SimpleSlider from '../components/SimpleSlider';
-import Sidebar from '../components/Sidebar';
-import ProductsBox from '../components/ProductsBox';
-
-// import db from '../utils/db';
-// import Product from '../models/Product';
-import image from '../media/';
 
 const image1 = require('../public/images/KuhnqS.jpg');
-const image2 = require('../public/images/KuhnqS2.jpg');
-const image3 = require('../public/images/KuhnqS2.jpg');
 
-const products = [
-  {
-    name: 'Free Shirt',
-    slug: 'free-shirt',
-    category: 'Shirts',
-    image: '/public/images/KuhnqS.jpg',
-    isFeatured: true,
-    featuredImage: '/public/images/KuhnqS.jpg',
-    price: 70,
-    brand: 'Nike',
-    rating: 4.5,
-    numReviews: 10,
-    countInStock: 20,
-    description: 'A popular shirt',
-  },
-  {
-    name: 'Fit Shirt',
-    slug: 'fit-shirt',
-    category: 'Shirts',
-    image: '/media/media-2.jpg',
-    isFeatured: true,
-    featuredImage: '/media/media-2.jpg',
-    price: 80,
-    brand: 'Adidas',
-    rating: 4.2,
-    numReviews: 10,
-    countInStock: 20,
-    description: 'A popular shirt',
-  },
-  {
-    name: 'Slim Shirt',
-    slug: 'slim-shirt',
-    category: 'Shirts',
-    image: '/media/media-3.jpg',
-    price: 90,
-    brand: 'Raymond',
-    rating: 4.5,
-    numReviews: 10,
-    countInStock: 20,
-    description: 'A popular shirt',
-  },
-];
-
-// const ProductsBox = dynamic(() => import('../components/ProductsBox'), {
-//   ssr: false,
-// });
 export default function Home(props) {
   console.log(props);
   const texts = props.texts[0];
@@ -133,13 +72,11 @@ export default function Home(props) {
   console.log(currentCarousel);
 
   if (typeof window !== 'undefined') {
-    // ReactDOM.render(<Layout />, document.getElementById('root'));
   }
 
   return (
     <Layout>
       <div>
-        {/* <Sidebar></Sidebar> */}
         <SimpleSlider
           carousel={currentCarousel}
           styling={styling}
@@ -161,7 +98,6 @@ export default function Home(props) {
           <Grid container spacing={3} style={{ width: '100%' }}>
             {props.products.map((product) => (
               <Grid item sm={4} key={product.name}>
-                {/* <span>${product.price}</span> */}
                 <Card raised="true">
                   <NextLink href={`/product/${product.slug}`} passHref>
                     <CardActionArea>
@@ -183,9 +119,7 @@ export default function Home(props) {
                       </CardContent>
                     </CardActionArea>
                   </NextLink>
-                  <CardActions>
-                    {/* <Typography>${product.price}</Typography> */}
-                  </CardActions>
+                  <CardActions></CardActions>
                 </Card>
               </Grid>
             ))}
@@ -236,7 +170,7 @@ export default function Home(props) {
         </div>
         <div>
           <Image
-            src={image1}
+            src={'http://localhost:1337' + props.products[0].gallery[0].url}
             alt="nz2"
             width={640}
             height={400}
@@ -247,17 +181,6 @@ export default function Home(props) {
     </Layout>
   );
 }
-
-// export async function getServerSideProps() {
-//   await db.connect();
-//   const products = await Product.find({}).lean();
-//   await db.disconnect();
-//   return {
-//     props: {
-//       products: products.map(db.convertDocToObj),
-//     },
-//   };
-// }
 
 function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
@@ -300,8 +223,6 @@ export const getStaticProps = async () => {
   let texts = data.hometexts;
   let projects = data.projects;
 
-  // const res = await fetch(`http://localhost:1337/products`);
-  // const products = await res.json();
   return {
     props: {
       products,
