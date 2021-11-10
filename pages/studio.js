@@ -13,7 +13,7 @@ export default function Studio(props) {
       <h1 style={{ textAlign: 'center' }}> Our team is all about the hustle</h1>
       <Grid container spacing={3}>
         {designers.map((designer) => (
-          <Grid item xs={12}>
+          <Grid item xs={12} key={designer.id}>
             <Grid container spacing={8}>
               <Grid item xs={12} sm={3}>
                 <div style={{ borderRadius: '250px', overflow: 'hidden' }}>

@@ -48,7 +48,7 @@ export default class SimpleSlider extends Component {
           )} */}
 
           {carousel.gallery.map((image) => (
-            <div>
+            <div key={image.id}>
               <div>
                 <h1 className="title">{image.alternativeText}</h1>
               </div>
