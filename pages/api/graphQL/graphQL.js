@@ -33,12 +33,10 @@ async function fetchAPI(queryFromReq, { variables } = {}) {
 
 export async function homePage() {
   const data = await fetchAPI(homepageQuery);
-  console.log(data);
   return data;
 }
 
 export async function studio() {
   const data = await fetchAPI(studioQuery);
-  console.log(data);
   return data;
 }

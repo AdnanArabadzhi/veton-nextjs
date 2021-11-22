@@ -13,8 +13,6 @@ export default class SimpleSlider extends Component {
     let styling = this.props.styling;
     let image = carousel.gallery[0];
 
-    console.log(image);
-
     const settings = {
       dots: true,
       infinite: true,

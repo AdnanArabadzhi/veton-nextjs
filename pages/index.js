@@ -68,10 +68,6 @@ export default function Home(props) {
     }
   `;
   }
-  console.log('STRAPI_API');
-  console.log(API_URL);
-  console.log(API_URL + '/');
-  console.log(props);
 
   if (typeof window !== 'undefined') {
   }
@@ -219,7 +215,6 @@ function useWindowSize() {
 
 export const getStaticProps = async () => {
   let data = await homePage();
-  console.log(data);
   let products = data.products;
   let carousels = data.carousels;
   let texts = data.hometexts;

@@ -28,7 +28,7 @@ import useStyles from '../utils/styles';
 import Link from 'next/link';
 import { Store } from '../utils/Store';
 import Cookies from 'js-cookie';
-import theme from '../pages/theme';
+import theme from '../utils/theme';
 import Sidebar from './Sidebar';
 // import 'bootstrap/dist/css/bootstrap.css';
 
