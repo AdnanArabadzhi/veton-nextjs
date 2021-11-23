@@ -13,7 +13,7 @@ export default function Carousel() {
       <div className={styles.slide}>
         {/* <img src="../public/images/KuhnqS2.jpg" alt="nz"></img> */}
         <Image
-          loading="eager"
+          priority={true}
           src={image2}
           alt="nz2"
           width={640}
@@ -21,7 +21,7 @@ export default function Carousel() {
           layout="responsive"
         ></Image>
         <Image
-          loading="eager"
+          priority={true}
           src={image1}
           alt="nz3"
           width={640}

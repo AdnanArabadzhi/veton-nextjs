@@ -168,7 +168,7 @@ export default function Home(props) {
         </div>
         <div>
           <Image
-            loading="eager"
+            priority={true}
             src={API_URL + props.products[0].gallery[0].url}
             alt="nz2"
             width={640}
