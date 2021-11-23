@@ -51,6 +51,7 @@ export default class SimpleSlider extends Component {
                 <h1 className="title">{image.alternativeText}</h1>
               </div>
               <Image
+                loading="eager"
                 className="image"
                 src={API_URL + image.url}
                 alt="nz2"

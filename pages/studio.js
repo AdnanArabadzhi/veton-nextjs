@@ -18,6 +18,7 @@ export default function Studio(props) {
               <Grid item xs={12} sm={3}>
                 <div style={{ borderRadius: '250px', overflow: 'hidden' }}>
                   <Image
+                    loading="eager"
                     className="image"
                     src={API_URL + designer.avatar.url}
                     alt="nz2"
