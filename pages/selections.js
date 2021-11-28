@@ -55,7 +55,7 @@ export default function Selections(props) {
   console.log(props);
   return (
     <Layout>
-      <Button
+      {/* <Button
         className={classes.brand}
         style={{ width: '50vh' }}
         onClick={toggleDrawer('right', true)}
@@ -69,7 +69,7 @@ export default function Selections(props) {
         onClose={toggleDrawer(state.anchor, false)}
       >
         {list(state.anchor)}
-      </Drawer>
+      </Drawer> */}
       <Grid container spacing={3} style={{ width: '100%' }}>
         {props.products.map((product) => (
           <Grid item sm={4} key={product.name}>
