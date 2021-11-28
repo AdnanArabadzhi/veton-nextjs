@@ -36,6 +36,7 @@ const useStyles = makeStyles({
       cursor: 'pointer',
     },
     textAlign: 'center',
+    maxHeight: '80px',
   },
   drawerItem: {
     width: '40vh',
@@ -57,6 +58,7 @@ const useStyles = makeStyles({
   },
   toolbar: {
     justifyContent: 'space-around',
+    height: '80px',
   },
   sliderImage: {
     zIndex: 1,

@@ -11,7 +11,7 @@ export default `query HomePageQuery {
             size
           }
         }
-    products{
+    products(limit: 6){
         id
         product_id
         Title
@@ -26,7 +26,7 @@ export default `query HomePageQuery {
         firstText
         secondText
         }
-    projects{
+    projects(limit: 6){
         id
         Title
         Description

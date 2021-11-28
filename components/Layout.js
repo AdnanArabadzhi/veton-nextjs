@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Image from 'next/image';
 import Head from 'next/head';
 import NextLink from 'next/link';
 import {
@@ -20,6 +21,9 @@ import {
   Icon,
 } from '@material-ui/core';
 // import FacebookRoundedIcon from '@material-ui/icons/FacebookRounded';
+import LOGO from '../media/LOGO.svg';
+import VETON from '../media/VETON.svg';
+import STUDIO from '../media/STUDIO.svg';
 import Facebook from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -48,14 +52,14 @@ export default function Layout({ title, children, description }) {
   const list = (anchor) => (
     <List>
       <ListItem className={classes.drawerListItem}>
-        <NextLink href="/products" passHref>
+        <NextLink href="/selections" passHref>
           <Link>
             <Typography className={classes.drawerItem}>Колекции</Typography>
           </Link>
         </NextLink>
       </ListItem>
       <ListItem>
-        <NextLink href="/selections" passHref>
+        <NextLink href="/projects" passHref>
           <Link>
             <Typography className={classes.drawerItem}>Проекти</Typography>
           </Link>
@@ -101,6 +105,7 @@ export default function Layout({ title, children, description }) {
   return (
     <div>
       <Head>
+        <link rel="icon" type="svg" href="/images/LOGO.svg" />
         <title>{title ? `${title} - Veton Studio` : 'Veton Studio'}</title>
         {description && <meta name="description" content={description}></meta>}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -114,23 +119,25 @@ export default function Layout({ title, children, description }) {
               style={{ width: '50vh' }}
               onClick={toggleDrawer('left', true)}
             >
-              Veton
+              <Image
+                src={VETON}
+                className={classes.brand}
+                height={80}
+                onClick={toggleDrawer('left', true)}
+              ></Image>
             </Button>
 
             <NextLink href="/" passHref>
               <Link>
-                <Typography
-                  className={classes.brand}
-                  style={{ width: '120vh' }}
-                >
-                  Logo
-                </Typography>
+                <Button className={classes.brand} style={{ width: '50vh' }}>
+                  <Image src={LOGO}></Image>
+                </Button>
               </Link>
             </NextLink>
             <NextLink href="/studio" passHref>
               <Link>
                 <Button className={classes.brand} style={{ width: '50vh' }}>
-                  Studio
+                  <Image src={STUDIO} height={80}></Image>
                 </Button>
               </Link>
             </NextLink>
@@ -151,8 +158,7 @@ export default function Layout({ title, children, description }) {
               padding: '7vh',
             }}
           >
-            <h1>Veton</h1>
-            <h3>Living, learning, & leveling up one day at a time.</h3>
+            <Image src={LOGO}></Image>
             <Grid
               container
               style={{
@@ -180,7 +186,7 @@ export default function Layout({ title, children, description }) {
                   padding: '10px',
                 }}
               >
-                <Link href="https://instagram.com">
+                <Link href="https://www.instagram.com/veton.studio/">
                   <InstagramIcon
                     fontSize="large"
                     className={classes.icon}
@@ -194,7 +200,7 @@ export default function Layout({ title, children, description }) {
                   padding: '10px',
                 }}
               >
-                <Link href="https://linkedin.com/">
+                <Link href="https://www.linkedin.com/company/veton-studio">
                   <LinkedInIcon
                     fontSize="large"
                     className={classes.icon}

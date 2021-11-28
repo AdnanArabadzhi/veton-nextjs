@@ -27,7 +27,6 @@ const image1 = require('../public/images/KuhnqS.jpg');
 
 export default function Home(props) {
   const texts = props.texts[0];
-  // const dataSet = data;
   let currentCarousel;
   let styling;
   const size = useWindowSize();
@@ -214,7 +213,7 @@ function useWindowSize() {
   return windowSize;
 }
 
-export const getStaticProps = async () => {
+Home.getInitialProps = async (ctx) => {
   let data = await homePage();
   let products = data.products;
   let carousels = data.carousels;
@@ -222,11 +221,9 @@ export const getStaticProps = async () => {
   let projects = data.projects;
 
   return {
-    props: {
-      products,
-      carousels,
-      texts,
-      projects,
-    },
+    products,
+    carousels,
+    texts,
+    projects,
   };
 };

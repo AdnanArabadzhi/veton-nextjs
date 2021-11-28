@@ -24,7 +24,7 @@ export default class SimpleSlider extends Component {
       accessibility: true,
       slidesToScroll: 1,
       adaptiveHeight: true,
-      // arrows: true,
+      arrows: false,
       // variableWidth: true,
       // width: 500,
       // height: 500,
@@ -33,18 +33,6 @@ export default class SimpleSlider extends Component {
     return (
       <div>
         <Slider {...settings} style={{ width: '100%' }}>
-          {/* {carousel.map((image) => (
-                      <div>
-                      <Image
-                        src={'http://localhost:1337' + image.url}
-                        alt="nz2"
-                        width={640}
-                        height={400}
-                        layout="responsive"
-                      ></Image>
-                    </div>
-          )} */}
-
           {carousel.gallery.map((image) => (
             <div key={image.id}>
               <div>
@@ -54,7 +42,7 @@ export default class SimpleSlider extends Component {
                 priority={true}
                 className="image"
                 src={API_URL + image.url}
-                alt="nz2"
+                alt={image.name}
                 width={image.width}
                 height={image.height}
                 layout="responsive"
@@ -62,25 +50,6 @@ export default class SimpleSlider extends Component {
             </div>
           ))}
         </Slider>
-        {/* // <div>
-          //   <Image
-          //     src={'http://localhost:1337' + carousel}
-          //     alt="nz2"
-          //     width={640}
-          //     height={400}
-          //     layout="responsive"
-          //   ></Image>
-          // </div>
-          // <div>
-          //   <Image
-          //     src={image1}
-          //     alt="nz2"
-          //     width={640}
-          //     height={400}
-          //     layout="responsive"
-          //   ></Image>
-          // </div>
-        // </Slider>*/}
         <style jsx>{styling}</style>
       </div>
     );

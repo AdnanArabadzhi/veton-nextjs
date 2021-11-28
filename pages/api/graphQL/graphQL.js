@@ -3,9 +3,10 @@ import { GRAPHQL_API_URL } from '../../../environment';
 // const GRAPHQL_API_URL = 'http://localhost:1337/graphql';
 
 import homepageQuery from './query/homepageQuery';
+import studioQuery from './query/studioQuery';
+import selectionsQuery from './query/selectionsQuery';
 
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-import studioQuery from './query/studioQuery';
 
 const client = new ApolloClient({
   uri: GRAPHQL_API_URL,
@@ -38,5 +39,10 @@ export async function homePage() {
 
 export async function studio() {
   const data = await fetchAPI(studioQuery);
+  return data;
+}
+
+export async function selections() {
+  const data = await fetchAPI(selectionsQuery);
   return data;
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import Layout from '../components/Layout';
 import { studio } from './api/graphQL/graphQL';
 import Image from 'next/image';
@@ -7,6 +7,25 @@ import { API_URL } from '../environment';
 
 export default function Studio(props) {
   let designers = props.designers;
+  let isDesktopSize;
+  let styling = ``;
+  const size = useWindowSize();
+  if (size.width <= 600) {
+    isDesktopSize = false;
+    styling = `
+    .title {
+      text-align: center;
+    }
+  `;
+  } else if (size.width > 600) {
+    isDesktopSize = true;
+    styling = `
+    .title {
+    }
+  `;
+  }
+  if (typeof window !== 'undefined') {
+  }
 
   return (
     <Layout>
@@ -14,7 +33,7 @@ export default function Studio(props) {
       <Grid container spacing={3}>
         {designers.map((designer) => (
           <Grid item xs={12} key={designer.id}>
-            <Grid container spacing={8}>
+            <Grid container spacing={8} style={{ justifyContent: 'center' }}>
               <Grid item xs={12} sm={3}>
                 <div style={{ borderRadius: '250px', overflow: 'hidden' }}>
                   <Image
@@ -31,7 +50,7 @@ export default function Studio(props) {
                   <h3>{designer.quote}</h3>
                 </Grid>
               </Grid>
-              <Grid item xs={9}>
+              <Grid className="title" item xs={9}>
                 <Grid item>
                   <h1>{designer.name}</h1>
                 </Grid>
@@ -46,8 +65,30 @@ export default function Studio(props) {
           </Grid>
         ))}
       </Grid>
+      <style jsx>{styling}</style>
     </Layout>
   );
+}
+
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      function handleResize() {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+      window.addEventListener('resize', handleResize);
+      handleResize();
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+  return windowSize;
 }
 
 Studio.getInitialProps = async (ctx) => {
