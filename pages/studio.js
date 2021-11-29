@@ -29,7 +29,13 @@ export default function Studio(props) {
 
   return (
     <Layout>
-      <h1 style={{ textAlign: 'center' }}> Our team is all about the hustle</h1>
+      <h1 style={{ textAlign: 'center' }}>
+        Нашата цел е да пречупим вашите идей през опта знанията и фантазията
+        която имаме и да разбудим въображението ви. Когато проектираме винаги си
+        задавме въпроса "Защо" и всяко решение е взето на базата на "Защото" Ние
+        разнищваме дизайна и търсим смисъл във всяка мебел в интериора. Дори
+        навлизаме още до всяко ръбче и извивка.
+      </h1>
       <Grid container spacing={3}>
         {designers.map((designer) => (
           <Grid item xs={12} key={designer.id}>
