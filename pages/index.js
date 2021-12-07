@@ -46,6 +46,7 @@ export default function Home(props) {
       top: 70vh;
       color: white;
       padding-left: 1vh;
+      fon-family: 'Futuris Cyrillic', arial;
     }
   `;
   } else {
@@ -96,7 +97,7 @@ export default function Home(props) {
             {props.products.map((product) => (
               <Grid item sm={4} key={product.name}>
                 <Card raised="true">
-                  <NextLink href={`/product/${product.slug}`} passHref>
+                  <NextLink href={`/selections`} passHref>
                     <CardActionArea>
                       <CardMedia
                         component="img"
@@ -141,7 +142,8 @@ export default function Home(props) {
               <Grid item sm={4} key={product.name}>
                 {/* <span>${product.price}</span> */}
                 <Card raised="true">
-                  <NextLink href={`/product/${product.slug}`} passHref>
+                  {/* <NextLink href={`/product/${product.slug}`} passHref> */}
+                  <NextLink href={`/product`} passHref>
                     <CardActionArea>
                       <CardMedia
                         component="img"

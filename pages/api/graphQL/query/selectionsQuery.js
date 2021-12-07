@@ -4,6 +4,7 @@ export default `query SelectionsQuery {
         product_id
         Title
         Description
+        price
         gallery{
             id
             url

@@ -1,0 +1,19 @@
+export default `query CollectionsQuery {
+    collections{
+        id
+        title
+        description
+        products{
+            id
+            product_id
+            Title
+            Description
+            price
+            gallery{
+                id
+                url
+            }
+        }
+    }
+}
+`;

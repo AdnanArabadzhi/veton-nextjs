@@ -5,6 +5,8 @@ import { GRAPHQL_API_URL } from '../../../environment';
 import homepageQuery from './query/homepageQuery';
 import studioQuery from './query/studioQuery';
 import selectionsQuery from './query/selectionsQuery';
+import projectsQuery from './query/projectsQuery';
+import collectionsQuery from './query/collectionsQuery';
 
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
@@ -44,5 +46,15 @@ export async function studio() {
 
 export async function selections() {
   const data = await fetchAPI(selectionsQuery);
+  return data;
+}
+
+export async function projects() {
+  const data = await fetchAPI(projectsQuery);
+  return data;
+}
+
+export async function collections() {
+  const data = await fetchAPI(collectionsQuery);
   return data;
 }
