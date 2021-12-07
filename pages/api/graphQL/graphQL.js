@@ -44,7 +44,7 @@ export async function studio() {
   return data;
 }
 
-export async function selections() {
+export async function getSelections() {
   const data = await fetchAPI(selectionsQuery);
   return data;
 }
